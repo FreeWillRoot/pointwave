@@ -75,8 +75,11 @@ export default {
         }
       }
       const geometry = new THREE.BufferGeometry()
-      geometry.addAttribute('position', new THREE.BufferAttribute(positions, 3))
-      geometry.addAttribute('scale', new THREE.BufferAttribute(scales, 1))
+      // geometry.addAttribute('position', new THREE.BufferAttribute(positions, 3))
+      // geometry.addAttribute('scale', new THREE.BufferAttribute(scales, 1))
+      //在THREEJS库的 110 版本中，addAttribute已更改为setAttribute
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+      geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1))
       // 初始化粒子材质
       const material = new THREE.ShaderMaterial({
         uniforms: {
